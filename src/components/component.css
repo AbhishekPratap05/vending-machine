@@ -1,0 +1,29 @@
+.vending-container {
+    display: flex;
+    outline: 2px solid;
+    flex-direction: row;
+    align-content: space-between;
+    max-width:700px;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    padding: 0.5rem
+}
+.vending-items{
+
+    width: 200px;
+}
+
+.container-item {
+    display: flex;
+    align-content: space-between;
+    outline: 2px solid;
+    max-width:410px;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.container-money-slot {
+    outline: 2px solid;
+    background-color: hsla(0, 0%, 78%, 0.85);
+    color: #000;
+}
