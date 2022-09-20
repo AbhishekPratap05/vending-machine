@@ -1,11 +1,15 @@
 import React from 'react'
-import Input from '@mui/material/Input'
 import { InputAdornment, InputLabel, OutlinedInput } from '@mui/material'
+import { useVendingContext } from './vendingContext';
+import  {actions} from './vendingReducer'
+
 export default function MoneySlot() {
 
+  const {state,dispatch} = useVendingContext();
+
     const handleChange = (event) => {
-        const amount = isNaN(event.target.valueAsNumber) ? 0 : event.target.valueAsNumber;
-        console.log(amount)
+        const amount =  event.target.value;
+        dispatch({type:actions.userEnteredAmount, amount:amount});
     };
 
   return (
@@ -14,10 +18,13 @@ export default function MoneySlot() {
           <OutlinedInput
             id="money-input"
             type="number"
-            onChange={handleChange}
+            value={state.enteredAmount}
+            onChange={(e)=>handleChange(e)}
             startAdornment={<InputAdornment position="start">₹</InputAdornment>}
             label="Amount"
           />
+          <div><h3>Amount Remaining</h3>{state.remainingAmount}</div>
     </div>
+    
   )
 }
