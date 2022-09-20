@@ -11,7 +11,7 @@ export default function ItemList() {
       return
     }
     dispatch({type:actions.userBought,details:{itemName,itemPrice}})
-    alert(`Bought ${itemName} of ₹ ${itemPrice}`)
+    alert(`Bought ${itemName} of ₹ ${itemPrice}`) 
   }
   return (
     <>
