@@ -29,6 +29,7 @@ export function vendingReducer(state, action) {
       return {
         ...state,
         enteredAmount: action.amount,
+        remainingAmount:0
       };
     default:
       return state;
