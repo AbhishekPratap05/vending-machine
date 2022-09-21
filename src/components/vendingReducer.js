@@ -18,12 +18,7 @@ export function vendingReducer(state, action) {
         ...state,
         enteredAmount:0,
         remainingAmount:state.enteredAmount - action.details.itemPrice,
-        items: state.items.map((item) => {
-          if (item.product === action.details.itemName) {
-            item.qty = item.qty - 1
-          }
-          return item;
-        })
+        items: action.details.newList
       };
     case actions.userEnteredAmount:
       return {

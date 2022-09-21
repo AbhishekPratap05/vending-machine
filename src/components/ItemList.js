@@ -10,7 +10,13 @@ export default function ItemList() {
       alert(`Can not buy ${itemName} as price is more than entered`)
       return
     }
-    dispatch({type:actions.userBought,details:{itemName,itemPrice}})
+    const newList = state.items.map((item) => {
+      if (item.product === itemName) {
+        item.qty = item.qty - 1
+      }
+      return item;
+    })
+    dispatch({type:actions.userBought,details:{newList,itemPrice}})
     alert(`Bought ${itemName} of ₹ ${itemPrice}`) 
   }
   return (
